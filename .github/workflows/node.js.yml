@@ -9,6 +9,12 @@ on:
   pull_request:
     branches: ["main"]
 
+
+    permissions:
+      id-token: write
+      pages: write
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,6 +34,3 @@ jobs:
           path: ./dist
       - uses: actions/deploy-pages@v4
 
-        permissions:
-          id-token: write
-          pages: write
