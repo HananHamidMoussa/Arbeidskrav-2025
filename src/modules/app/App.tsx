@@ -8,7 +8,7 @@ import "ol/ol.css";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import { GeoJSON } from "ol/format";
-import { Fill, Stroke, Style } from "ol/style";
+import { Fill, Stroke, Style, Text } from "ol/style";
 import CircleStyle from "ol/style/Circle";
 
 useGeographic();
@@ -30,6 +30,22 @@ const map = new Map({
         url: "Arbeidskrav-2025/public/geojson/civil-defence.geojson",
         format: new GeoJSON(),
       }),
+
+      style: (feature) =>
+        new Style({
+          stroke: new Stroke({
+            color: "green",
+            width: 2,
+          }),
+          fill: new Fill({
+            color: "white",
+          }),
+          text: new Text({
+            text: feature.getProperties().navn,
+            fill: new Fill({ color: "green" }),
+            stroke: new Stroke({ color: "white", width: 2 }),
+          }),
+        }),
     }),
 
     new VectorLayer({
@@ -41,7 +57,7 @@ const map = new Map({
     }),
   ],
 
-  view: new View({ center: [15, 65.3], zoom: 5 }),
+  view: new View({ center: [10, 60], zoom: 7 }),
 });
 
 export function App() {
