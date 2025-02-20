@@ -27,6 +27,13 @@ const map = new Map({
 
     new VectorLayer({
       source: new VectorSource({
+        url: "Arbeidskrav-2025/public/geojson/civil-defence.geojson",
+        format: new GeoJSON(),
+      }),
+    }),
+
+    new VectorLayer({
+      source: new VectorSource({
         url: "Arbeidskrav-2025/public/geojson/emergency-shelters.geojson",
         format: new GeoJSON(),
       }),
