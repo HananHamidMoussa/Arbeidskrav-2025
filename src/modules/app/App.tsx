@@ -8,8 +8,18 @@ import "ol/ol.css";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import { GeoJSON } from "ol/format";
+import { Fill, Stroke, Style } from "ol/style";
+import CircleStyle from "ol/style/Circle";
 
 useGeographic();
+
+const defaultStyle = new Style({
+  image: new CircleStyle({
+    radius: 3,
+    fill: new Fill({ color: "rgba(255, 0, 0, 0.7)" }),
+    stroke: new Stroke({ color: "rgba(0, 0, 0, 0.9)", width: 0.5 }),
+  }),
+});
 
 const map = new Map({
   layers: [
@@ -20,6 +30,7 @@ const map = new Map({
         url: "Arbeidskrav-2025/public/geojson/emergency-shelters.geojson",
         format: new GeoJSON(),
       }),
+      style: defaultStyle,
     }),
   ],
 
