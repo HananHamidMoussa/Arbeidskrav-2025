@@ -20,7 +20,7 @@ function shelterStyle(feature: FeatureLike) {
   let color: string;
 
   if (plasser < 100) {
-    color = "green"; // For nødshelter med under 100 plasser
+    color = "green";
   } else if (plasser >= 100 && plasser <= 500) {
     color = "orange"; //
   } else {
@@ -91,13 +91,13 @@ export function ShelterLayers({
   setLayers,
   map,
 }: {
-  setLayers: Dispatch<SetStateAction<Layer[]>>; // Accepts all layers
+  setLayers: Dispatch<SetStateAction<Layer[]>>;
   map: Map;
 }) {
   function handleClick(e: MapBrowserEvent<MouseEvent>) {
     const shelters = map
       .getFeaturesAtPixel(e.pixel, {
-        layerFilter: (l) => l === shelterLayer, // Only get shelters
+        layerFilter: (l) => l === shelterLayer,
         hitTolerance: 5,
       })
       .map((f) => f.getProperties()) as ShelterProperties[];
@@ -113,7 +113,7 @@ export function ShelterLayers({
   const [selectedFeatures, setSelectedFeatures] = useState<ShelterProperties[]>(
     [],
   );
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   useEffect(() => overlay.setElement(overlayRef.current || undefined), []);
 

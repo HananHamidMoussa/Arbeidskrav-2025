@@ -19,48 +19,6 @@ const userSource = new VectorSource();
 const view = new View({ center: [10, 60], zoom: 7 });
 const map = new Map({ view });
 
-/*
-const map = new Map({
- layers: [
-   new TileLayer({ source: new OSM() }),
-
-   new VectorLayer({
-     source: new VectorSource({
-       url: "Arbeidskrav-2025/public/geojson/civil-defence.geojson",
-       format: new GeoJSON(),
-     }),
-
-     style: (feature) =>
-       new Style({
-         stroke: new Stroke({
-           color: "green",
-           width: 2,
-         }),
-         fill: new Fill({
-           color: "white",
-         }),
-         text: new Text({
-           text: feature.getProperties().navn,
-           fill: new Fill({ color: "green" }),
-           stroke: new Stroke({ color: "white", width: 2 }),
-         }),
-       }),
-   }),
-
-   new VectorLayer({
-     source: new VectorSource({
-       url: "Arbeidskrav-2025/public/geojson/emergency-shelters.geojson",
-       format: new GeoJSON(),
-     }),
-     style: defaultStyle,
-   }),
- ],
-
-
-});
-
-*/
-
 function MapView() {
   const mapRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
