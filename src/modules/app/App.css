@@ -1,0 +1,63 @@
+* {
+  margin: unset;
+}
+
+#root {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+header,
+nav {
+  padding: 0.25rem;
+}
+
+nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.overlay {
+  background-color: white;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transform: translateY(-1rem);
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  border-style: solid;
+  border-color: transparent;
+  border-width: 1rem 0.4rem 0 0.4rem;
+  border-top-color: white;
+  bottom: 0;
+}
+
+.shelterButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #f8f9fa; /* light neutral background */
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.shelterButton:hover {
+  background-color: #e9ecef; /* slight hover effect */
+}
+
+.shelterButton input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.1);
+  cursor: pointer;
+}
