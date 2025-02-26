@@ -11,6 +11,7 @@ import VectorSource from "ol/source/Vector";
 
 import { Layer } from "ol/layer";
 import { ShelterLayers } from "../layers/shelterLayer";
+import { CivilDefenseLayer } from "../layers/civilDefenseLayer";
 
 useGeographic();
 
@@ -82,6 +83,7 @@ export function App() {
       <header></header>
       <nav>
         <ShelterLayers setLayers={setLayers} map={map} />
+        <CivilDefenseLayer setLayers={setLayers} map={map} />
       </nav>
       <MapView />
     </>
